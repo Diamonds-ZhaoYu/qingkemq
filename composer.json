@@ -1,0 +1,20 @@
+{
+    "name": "qk/qingkemq",
+    "description": "内部使用调用包,用于mq使用",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "zhaoyu",
+            "email": "zhaoyu10@100tal.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Qk\\QingkeMq\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.6.0"
+    }
+}
