@@ -44,9 +44,9 @@ class RedisMq
      * @return RedisMq
      * @throws \Exception
      */
-    public static function Factory(string $host = '127.0.0.1',int $port = 6379,string $pwd = '',string $pre = '' ,int $dbs = 0)
+    public static function Factory(string $host = '127.0.0.1', int $port = 6379, string $pwd = '', int $dbs = 0, string $pre = '')
     {
-        return new self($host,$port,$pwd,$pre,$dbs);
+        return new self($host, $port, $pwd, $pre, $dbs);
     }
 
 

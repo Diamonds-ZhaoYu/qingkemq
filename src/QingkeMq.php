@@ -65,9 +65,34 @@ class QingkeMq
 
 
     /**
-     * @var string
+     * @var string redis链接地址
      */
     protected $_rdsHost       = '127.0.0.1';
+
+
+    /**
+     * @var string redis端口
+     */
+    protected $_rdsPort       = '6379';
+
+    /**
+     * @var string redis密码
+     */
+    protected $_rdsPwd        = '';
+
+    /**
+     * @var int  redis数据库编号
+     */
+    protected $_rdsDbs        = 12;
+
+    /**
+     * 设置数据库
+     * @param int $rdsDbs
+     */
+    public function setRdsDbs(int $rdsDbs): void
+    {
+        $this->_rdsDbs = $rdsDbs;
+    }
 
     /**
      * 设置redis地址
@@ -96,15 +121,7 @@ class QingkeMq
         $this->_rdsPwd = $rdsPwd;
     }
 
-    /**
-     * @var string
-     */
-    protected $_rdsPort       = '6379';
 
-    /**
-     * @var string
-     */
-    protected $_rdsPwd        = '';
 
     /**
      * 队列调用初始化
@@ -225,6 +242,6 @@ class QingkeMq
 
         $args = json_encode($sendParam);
 
-        return RedisMq::Factory($this->_rdsHost, $this->_rdsPort, $this->_rdsPwd)->rpush($this->TaskQueueName, $args);
+        return RedisMq::Factory($this->_rdsHost, $this->_rdsPort, $this->_rdsPwd, $this->_rdsDbs)->rpush($this->TaskQueueName, $args);
     }
 }
